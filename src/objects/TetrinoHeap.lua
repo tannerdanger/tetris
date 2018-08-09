@@ -48,9 +48,9 @@ function TetrinoHeap:glow()
 end
 
 function TetrinoHeap:render()
-    for i, block in self.placedBlocks do
-        block:render()
-    end
-
+--    for i, block in self.placedBlocks do
+--        block:render()
+--    end
+print_r(self.placedBlocks)
 end
 

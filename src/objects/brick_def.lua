@@ -4,7 +4,7 @@
 --
 
 TETRINOS = {
---TODO: Consolodate all block types into one class and use this to define
+    --TODO: Consolodate all block types into one class and use this to define
     [1] = function() return O() end,
     [2] = function() return I() end,
     [3] = function() return T() end,
@@ -14,7 +14,9 @@ TETRINOS = {
     [7] = function() return I() end
 
     --TODO: Theme etc
-
-
 }
 
+BOARD_GRID = {
+    --[ROW]
+
+}

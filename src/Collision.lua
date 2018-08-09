@@ -11,7 +11,7 @@ end
 
 function collideLeft(tetrino, brickHeap, board)
     for i = 1, 4 do
-        if tetrino.blocks[i].x  <= board.x then
+        if tetrino.blocks[i].x  <= board.left_edge then
             return true
         end
 
@@ -21,7 +21,7 @@ end
 
 function collideRight(tetrino, brickHeap, board)
     for i = 1, 4 do
-        if tetrino.blocks[i].x  >= board.x + board.width - TILE_SIZE  then
+        if tetrino.blocks[i].x  >= board.right_edge - TILE_SIZE  then
             return true
         end
     end
@@ -29,10 +29,10 @@ function collideRight(tetrino, brickHeap, board)
 end
 
 function collideDown(tetrino, brickHeap, board)
+    print(BOARD.bottom .. "board.bottom")
+    print(tetrino.blocks[1].y .. "tetrino y")
     for i = 1, 4 do
-        print(tetrino.blocks[i].y)
-        print(board.y + board.height)
-        if tetrino.blocks[i].y  >= board.y + board.height - TILE_SIZE  then
+        if tetrino.blocks[i].y  > BOARD.bottom - TILE_SIZE * 2 then
             return true
         end
     end

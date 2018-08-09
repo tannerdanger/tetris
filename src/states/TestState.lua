@@ -11,26 +11,12 @@ TestState = Class{__includes = BaseState}
 function TestState:init()
 
 
-    BOARD = GameBoard() --MAKE BOARD FIRST TO SET KEYBLOCK
-    PLACED_BLOCKS = TetrinoHeap()
-    local fun = TETRINOS[love.math.random(4)]
+    --BOARD = GameBoard() --MAKE BOARD FIRST TO SET KEYBLOCK
+    BOARD = Board()
 
-    if fun then
-        self.activeBrick = fun()
-    end
+    self.speed = gSpeeds[3]
 
-    fun = TETRINOS[love.math.random(4)]
-    if fun then
-        self.nextBrick = fun()
-    end
-
-    self.speed = gSpeeds[1]
     self.timer = 0
-
-    self.ctr = 1
-
-    --self.gameStack = StateStack()
-
 
     --debugging stuff
     self.mousepos = false
@@ -47,29 +33,37 @@ function TestState:update(dt)
         self.timer = self.timer % self.speed
         --TODO: Increase score
         if not collideDown(self.activeBrick, PLACED_BLOCKS, BOARD) then
+
             self.activeBrick:moveDown(dt)
         else
             --place block
-            PLACED_BLOCKS.place(self.activeBrick)
+
+            BOARD:place(self.activeBrick)
             self.activeBrick = self.nextBrick
+
+            --create new block
             fun = TETRINOS[love.math.random(4)]
             if fun then
                 self.nextBrick = fun()
             end
+
+
         end
         self.ctr = self.ctr+1
     end
     -- end
 
+    --update board (MOVE THIS?)
+    BOARD:update(dt, self.nextBrick)
+
+
+    --input / collision handling--
     if love.keyboard.wasPressed('left') or love.keyboard.wasPressed('a') then
         if not collideLeft(self.activeBrick, PLACED_BLOCKS, BOARD) then
             self.activeBrick:moveLeft(dt)
         else
             --collided, do stuff
         end
-
-
-
     elseif love.keyboard.wasPressed('right') or love.keyboard.wasPressed('d') then
         if not collideRight(self.activeBrick, PLACED_BLOCKS, BOARD) then
             self.activeBrick:moveRight(dt)
@@ -96,7 +90,7 @@ function TestState:update(dt)
         self.activeBrick:drop(dt)
     end
 
-    --self.activeBrick:updateP(dt)
+
 
 end
 
@@ -105,6 +99,7 @@ function TestState:render()
     love.graphics.setColor(gColors.white, gAlphas.opaque)
 
     BOARD:render()
+    PLACED_BLOCKS:render()
     if self.activeBrick then
         self.activeBrick:render()
     end
@@ -115,9 +110,6 @@ function TestState:render()
         print("mouse X :  " .. mouseX)
         print("mouse Y :  ".. mouseY)
     end
-
-
-
 end
 
 

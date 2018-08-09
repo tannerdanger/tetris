@@ -26,7 +26,8 @@ require 'src/objects/Block'
 
 require 'src/states/PlayState'
 
-require 'src/objects/GameBoard'
+require 'src/objects/Board'
+--require 'src/objects/GameBoard'
 
 BLOCK_HEAP = require 'src/objects/TetrinoHeap'
 --BOARD = require 'src/objects/GameBoard'

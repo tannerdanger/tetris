@@ -24,15 +24,11 @@ function Tetrino:moveRight(dt)
 end
 function Tetrino:moveDown(dt)
 
-    --    if not self:checkCollisions() then
-
     for i = 1, 4 do
         self.blocks[i].y = self.blocks[i].y + TILE_SIZE
         self.blocks[i]:update()
     end
 
-    --  else
-    --  print("COLLISION")
 
 
 end
@@ -44,7 +40,10 @@ end
 
 function Tetrino:render()
     for i = 1, 4 do
-        self.blocks[i]:render()
+        if self.blocks[i].y >= BOARD.top then
+            self.blocks[i]:render()
+        end
+
     end
 end
 

@@ -19,7 +19,8 @@ function Block:init(img, x, y)
     self.x = KEY_BLOCK.x + (x * TILE_SIZE)
     self.y = KEY_BLOCK.y + (y * TILE_SIZE)
     self.image = img
-    self.row =
+    self.placed = false
+    --self.row =
 
 
 
@@ -37,7 +38,7 @@ function Block:blowLoad()
 
 end
 
-function Block:updateP(dt)
+function Block:update(dt)
 
 end
 
@@ -56,4 +57,6 @@ function Block:collides(object)
 
     return true
 end
+
+
 

@@ -1,58 +1,38 @@
 --[[
-    GD50
-    Legend of Zelda
 
-    -- constants --
-
-    Author: Colton Ogden
-    cogden@cs50.harvard.edu
 ]]
-
 --VIRTUAL_WIDTH = 384
 --VIRTUAL_HEIGHT = 216
 
 WINDOW_WIDTH = 1920
 WINDOW_HEIGHT = 1080
 
-VIRTUAL_WIDTH = WINDOW_WIDTH
-VIRTUAL_HEIGHT = WINDOW_HEIGHT
+VIRTUAL_WIDTH = 1920
+VIRTUAL_HEIGHT = 1080
 
-BOARD_HEIGHT = 20
-BOARD_WIDTH = 10
+BOARD_ROWS = 20
+BOARD_COLS = 10
 
 TILE_SIZE = 32
-COUNT_TIME = 0.75
+
 
 gTextures = {
-
-  --  ['blue'] = love.graphics.newImage('assets/blocks/blue_panel.png'),
-    ['blue_x'] = love.graphics.newImage('assets/blocks/blue_boxCross.png') ,
-
-  --  ['green'] = love.graphics.newImage('assets/blocks/green_panel.png'),
-    ['green_x'] = love.graphics.newImage('assets/blocks/green_boxCross.png') ,
-  --  ['yellow'] = love.graphics.newImage('assets/blocks/yellow_panel.png'),
-    ['yellow_x'] = love.graphics.newImage('assets/blocks/yellow_boxCross.png') ,
-    ['grey'] = love.graphics.newImage('assets/blocks/grey_panel.png'),
-    ['grey_x'] = love.graphics.newImage('assets/blocks/grey_boxCross.png') ,
-    ['purple'] = love.graphics.newImage('assets/blocks/purple_panel.png'),
-    ['purple_x'] = love.graphics.newImage('assets/blocks/purple_boxCross.png') ,
-   -- ['red'] = love.graphics.newImage('assets/blocks/red_panel.png'),
-    ['red_x'] = love.graphics.newImage('assets/blocks/red_boxCross.png'),
-
-
-  --  ['dark_blue'] = love.graphics.newImage('assets/blocks/tinablue.png'),
-    ['green'] = love.graphics.newImage('assets/blocks/Kochi.png'),
-    ['yellow'] = love.graphics.newImage('assets/blocks/geneblock.png'),
-  --  ['grey'] = love.graphics.newImage('assets/blocks/bobblock.png'),
-  --  ['pink'] = love.graphics.newImage('assets/blocks/louiseblock.png'),
-    ['red'] = love.graphics.newImage('assets/blocks/LindaBlock.png'),
-  --  ['red_x'] = love.graphics.newImage('assets/blocks/red_boxCross.png'),
-  --  ['blue_x'] = love.graphics.newImage('assets/blocks/blue_boxCross.png') ,
-  --  ['purple_x'] = love.graphics.newImage('assets/blocks/purple_boxCross.png') ,
-  --  ['grey_x'] = love.graphics.newImage('assets/blocks/grey_boxCross.png') ,
-  --  ['yellow_x'] = love.graphics.newImage('assets/blocks/yellow_boxCross.png') ,
-  --  ['green_x'] = love.graphics.newImage('assets/blocks/green_boxCross.png') ,
-    ['light_blue'] = love.graphics.newImage('assets/blocks/tinablue.png')
+    --[[
+    ['grey'] = love.graphics.newImage('assets/blocks/grey48.png'),
+    ['blue'] = love.graphics.newImage('assets/blocks/blue48.png'),
+    ['green'] = love.graphics.newImage('assets/blocks/green48.png'),
+    ['yellow'] = love.graphics.newImage('assets/blocks/yellow48.png'),
+    ['red'] = love.graphics.newImage('assets/blocks/red48.png'),
+    ['pink'] = love.graphics.newImage('assets/blocks/pink48.png'),
+    ['light_blue'] = love.graphics.newImage('assets/blocks/light_blue48.png')
+    ]]
+    ['grey'] = love.graphics.newImage('assets/blocks/grey.png'),
+    ['blue'] = love.graphics.newImage('assets/blocks/blue.png'),
+    ['green'] = love.graphics.newImage('assets/blocks/green.png'),
+    ['yellow'] = love.graphics.newImage('assets/blocks/yellow.png'),
+    ['red'] = love.graphics.newImage('assets/blocks/red.png'),
+    ['pink'] = love.graphics.newImage('assets/blocks/pink.png'),
+    ['light_blue'] = love.graphics.newImage('assets/blocks/light_blue.png')
 }
 
 gFrames = {
